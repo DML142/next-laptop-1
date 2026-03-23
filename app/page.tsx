@@ -1,9 +1,41 @@
-import Image from "next/image";
+'use client';
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import WelcomeSection from "@/components/Welcome";
+import Highlights from "@/components/Highlights";
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 export default function Home() {
+
+  useGSAP(() => {
+    ScrollSmoother.create({
+      smooth: 1,
+      effects: true, 
+      normalizeScroll: true,
+    });
+
+    // gsap.to('#test', {
+    //   y: 0, 
+    //   scrollTrigger: {
+    //     trigger: '#test',
+    //     start: 'center center',
+    //     end: 'bottom top',
+    //     scrub: 1,
+    //     // pin: true,
+    //     // markers:true,
+    //   }
+    // });
+  });
   return (
-    <div className="flex justify-between h-screen">
-      <h1 className="text-2xl flex w-full justify-center h-sceen pt-30">test Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda fuga necessitatibus facere beatae dolor ratione, laborum aut exercitationem sequi delectus id, iusto deserunt odit libero tempora ad aspernatur accusantium enim voluptatem suscipit. Exercitationem cumque sequi ullam natus, illo enim eum et, cum corrupti nisi non consectetur rem culpa, iusto itaque iste fuga eveniet amet consequatur ipsam aut est ea odio at. Id odio ipsam rem deserunt aperiam quod officia repellendus totam, quas, est asperiores enim eos reiciendis dolore magni, explicabo obcaecati labore doloribus error. Repellat, error perspiciatis ex reiciendis omnis est obcaecati libero qui dolore illum? Fugit quidem, temporibus a tempora repellat dolor sed quae deserunt aliquid repellendus distinctio veniam sapiente suscipit officiis minima aperiam doloribus sit nam! Asperiores nihil, sit nostrum ab at libero veniam dolorum nesciunt et minima maiores optio. Nihil quidem ut sit sint, quod provident suscipit modi repellat corrupti numquam harum perspiciatis vero. Tenetur assumenda qui recusandae alias ea in ipsum ad, expedita dignissimos culpa deleniti suscipit nisi! Perferendis nam quidem a, sed, soluta exercitationem pariatur cum excepturi fugiat, officiis distinctio. Facere, libero sequi eos eum dicta numquam voluptate dolorum quas, optio at a voluptates illo perferendis, minima consectetur sapiente totam. A sunt aliquam fugiat distinctio doloribus ut sequi recusandae facere, nemo repellat ipsam minus asperiores nisi vero deleniti incidunt minima consequuntur nulla? Esse quis, ipsa obcaecati doloribus ad adipisci aperiam! Assumenda perferendis accusantium porro et neque incidunt recusandae unde rem laborum consequuntur id, ducimus exercitationem fuga eum veritatis, eligendi aliquid, atque repellat quia labore sapiente nulla blanditiis quidem corporis? A culpa accusantium ducimus consequuntur molestiae eveniet neque, magnam adipisci eius dicta iusto doloribus laboriosam fugit rem minima nesciunt. Saepe esse placeat optio modi. Accusantium autem animi totam reprehenderit omnis quibusdam. Minus rem tenetur officiis, vel, animi inventore provident nulla dicta distinctio nobis facere voluptas asperiores minima molestias odio suscipit, mollitia molestiae consectetur error similique nemo culpa ipsam numquam? Molestiae exercitationem fugit tenetur, facilis assumenda totam, voluptate doloremque suscipit eum odio eligendi id aut ipsa dolorem voluptatibus placeat inventore fuga facere iste cupiditate aperiam minus! Qui praesentium alias, omnis quam expedita tempora rerum assumenda aspernatur nisi reprehenderit architecto id deserunt necessitatibus autem! Id cumque perspiciatis ad atque aliquid iste rem. Reiciendis iusto necessitatibus optio dignissimos unde? Nisi quia beatae fuga tempora impedit libero laborum, ut sapiente eveniet totam dolor eaque omnis doloremque deserunt tempore dolore! Tenetur harum, repellendus ipsam ab sequi recusandae consequuntur quidem necessitatibus quia ratione sit praesentium iusto? Dolore esse consectetur nesciunt aut, minus beatae ut. Beatae adipisci amet cupiditate voluptate quo nulla odit accusamus porro deserunt ipsam, delectus labore accusantium eos hic debitis vero reiciendis quisquam illum ducimus impedit! Voluptas laudantium error quos aliquid reiciendis quo dicta quia dolore quisquam. Eos, omnis? Quos nesciunt corporis suscipit voluptates laudantium cupiditate, incidunt, ullam error quia expedita officia dolor fugit sed vel id consectetur in numquam nihil, aspernatur rem quisquam vero nobis reiciendis. Placeat necessitatibus explicabo illum suscipit voluptatem sint dolor quasi optio ipsa dolorem laborum eligendi, beatae et ipsum perspiciatis! Rerum fuga quidem velit consequuntur!</h1>
+    <div id="test smooth-wrapper" className="flex justify-between h-full">
+      <div id="smooth-content">
+        <WelcomeSection />
+        <Highlights />
+      </div>
     </div>
   );
 }
