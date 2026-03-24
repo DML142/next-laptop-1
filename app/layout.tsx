@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body
-        className={`${inter.variable} antialiased max-w-1000`}
+        className={`${inter.variable} antialiased max-w-1000 background`}
       >
         <Navbar />
         {children}

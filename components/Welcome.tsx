@@ -1,9 +1,23 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
 export default function WelcomeSection() {
+    useGSAP(() => {
+        ScrollTrigger.create({
+            trigger: '#welcome',
+            start: 'top top',
+            pin: true,
+            pinSpacing: false
+        });
+    });
+
     return (
-        <section className="md:h-screen w-screen md:px-20 lg:px-30">
+        <section id="welcome" className="md:h-screen w-screen md:px-20 lg:px-30 relative z-1">
             <div className="flex flex-col justify-between">
                 <div className="flex w-full justify-center items-center">
                     <Image width={800} height={800} className=" pb-20 py-40 object-contain md:min-h-140 md:w-250 w-150 md:max-h-[75vh] min-h-150 max-h-150" src='/images/LaptopWelcome.png' alt="DML LP Pro" />
